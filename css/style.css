@@ -180,6 +180,10 @@ p {
 }
 .project-card a {
   margin: 30px 30px;
+  font-size: 17px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #072acb;
 }
 .project-card img {
   width: 100%;
