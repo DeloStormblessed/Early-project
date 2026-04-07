@@ -1,13 +1,18 @@
 html {
   text-align: center;
 }
+body {
+  background-color: #f2f4fc;
+}
 * {
   margin: 0 auto;
   padding: 0;
-  background-color: #f2f4fc;
   font-family: "Roboto", sans-serif;
   max-width: 1200px;
   box-sizing: border-box;
+}
+img {
+  background-color: transparent;
 }
 h1,
 h2,
@@ -15,6 +20,7 @@ h3,
 h4 {
   color: #292e47;
   font-weight: bold;
+  background-color: transparent;
 }
 h1 {
   font-size: 60px;
@@ -31,6 +37,7 @@ h4 {
 }
 p {
   color: #6b708d;
+  background-color: transparent;
 }
 .main-header {
   display: flex;
@@ -81,7 +88,7 @@ p {
   justify-content: flex-start;
   align-items: center;
   margin: 60px auto;
-  max-width: 85%;
+  max-width: 90%;
 }
 .hero p {
   font-size: 20px;
@@ -115,7 +122,6 @@ p {
 }
 .hero-top-img,
 .hero-bottom-img {
-  background-color: transparent;
   border: none;
   outline: none;
   width: 70%;
@@ -155,39 +161,149 @@ p {
 #projects h3 {
   padding-bottom: 34px;
 }
-.project-container {
+.cards-container {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 30px;
 }
-.project-card {
+.card {
   width: 30%;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
   margin: 0 auto;
 }
-.project-card h4,
-.project-card p,
-.project-card a {
+.card h4,
+.card p,
+.card a {
   background-color: transparent;
 }
-.project-card h4 {
+.card h4 {
   margin: 30px 30px 10px;
 }
-.project-card p {
+.card p {
   margin: 0 30px 30px;
 }
-.project-card a {
+.card a {
   margin: 30px 30px;
   font-size: 17px;
   font-weight: bold;
   text-decoration: none;
   color: #072acb;
 }
-.project-card img {
+.project img {
   width: 100%;
   object-fit: cover;
   height: 270px;
+}
+
+#testimonial {
+  margin: 150px 0;
+}
+.testimonial-container {
+  position: relative;
+  display: flex;
+  width: 95%;
+  height: 35%;
+  background-color: #292e47;
+  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.testimonial-container img {
+  display: flex;
+  object-fit: fill;
+}
+.testimonial-text-container h3 {
+  color: #f2f4fc;
+}
+.testimonial-text-container h3,
+.testimonial-text-container p {
+  margin: 0;
+  padding: 0;
+}
+.testimonial-text-container {
+  gap: 90px;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.testimonial-text-container p {
+  font-size: 24px;
+  color: #ffc600;
+}
+.testimonial-girl {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.testimonial-girl img {
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+.testimonial-girl-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  flex-shrink: 0;
+}
+
+.testimonial-girl-info p {
+  font-size: 17px;
+  color: #a2d6f9;
+}
+.testimonial-girl-info aside {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #f2f4fc;
+}
+
+.emoji {
+  position: absolute;
+  width: 125px;
+  height: auto;
+  z-index: 1;
+}
+
+.top-left {
+  top: 50px;
+  left: 50px;
+}
+.top-right {
+  top: 50px;
+  right: 50px;
+}
+.bottom-left {
+  bottom: 50px;
+  left: 50px;
+}
+.bottom-right {
+  bottom: 50px;
+  right: 50px;
+}
+#services {
+  width: 90%;
+  margin-bottom: 20px;
+  text-align: left;
+  margin: 50 auto;
+}
+.service {
+  align-items: start;
+}
+.service img {
+  margin: 30px 30px 0;
+  display: flex;
+  border-radius: 50%;
+  background-color: #ecf7ff;
+  object-fit: cover;
+  padding: 20px;
 }
