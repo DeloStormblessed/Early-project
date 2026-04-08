@@ -166,7 +166,7 @@ p {
 #projects {
   text-align: left;
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 90%;
 }
 #projects h3 {
   padding-bottom: 34px;
@@ -428,6 +428,38 @@ footer {
   color: #072acb;
 }
 
+/*PROJECTS.HTML*/
+.article-project {
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+.article-project h1 {
+  padding-bottom: 15px;
+}
+.article-project img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 0.75rem rgb(230, 160, 8));
+}
+.author-date-project {
+  padding-bottom: 70px;
+}
+.author-date-project {
+  display: flex;
+  justify-content: space-between;
+}
+.author-date-project p {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: #6b708d;
+}
+.article-project-content {
+  margin: 40px 0;
+}
 @media (max-width: 1024px) {
   h1 {
     font-size: 46px;
@@ -447,36 +479,31 @@ footer {
   .main-header {
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Necesario para que el nav baje a la siguiente línea */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     height: auto;
     margin: 0 auto;
   }
 
-  /* 1. Izquierda */
   .hamburger-btn {
     order: 1;
     display: flex;
     justify-content: flex-start;
   }
 
-  /* 2. Centro */
   .main-header img {
     order: 2;
-    margin: 0 auto; /* Ayuda a centrar si los elementos laterales tienen anchos distintos */
+    margin: 0 auto;
   }
 
-  /* 3. Derecha */
   .main-header .btn {
     order: 3;
     text-align: right;
   }
-
-  /* 4. Menú desplegable (debajo de todo) */
   nav {
     order: 4;
-    width: 100%; /* Obliga al nav a ocupar toda la fila y bajar */
+    width: 100%;
   }
 
   .navbar {
