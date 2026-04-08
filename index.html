@@ -8,9 +8,15 @@
   </head>
   <body>
     <header class="main-header">
+      <button class="hamburger-btn" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <img src="project-assets/logos/circle.svg" alt="Circle Logo" />
       <nav>
-        <ul class="navbar">
+        <ul class="navbar" id="navbar-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#services">Services</a></li>
@@ -110,26 +116,28 @@
             </div>
           </div>
         </div>
-        <img
-          class="emoji top-left"
-          src="project-assets/testimonial-section/memoji-1.png"
-          alt="emoji1"
-        />
-        <img
-          class="emoji top-right"
-          src="project-assets/testimonial-section/memoji-2.png"
-          alt="emoji2"
-        />
-        <img
-          class="emoji bottom-left"
-          src="project-assets/testimonial-section/memoji-3.png"
-          alt="emoji3"
-        />
-        <img
-          class="emoji bottom-right"
-          src="project-assets/testimonial-section/memoji-4.png"
-          alt="emoji4"
-        />
+        <div class="emojis">
+          <img
+            class="emoji top-left removable"
+            src="project-assets/testimonial-section/memoji-1.png"
+            alt="emoji1"
+          />
+          <img
+            class="emoji top-right removable"
+            src="project-assets/testimonial-section/memoji-2.png"
+            alt="emoji2"
+          />
+          <img
+            class="emoji bottom-left removable"
+            src="project-assets/testimonial-section/memoji-3.png"
+            alt="emoji3"
+          />
+          <img
+            class="emoji bottom-right removable"
+            src="project-assets/testimonial-section/memoji-4.png"
+            alt="emoji4"
+          />
+        </div>
       </div>
     </section>
 
@@ -206,5 +214,22 @@
         </form>
       </div>
     </section>
+
+    <footer>
+      <div class="address-info">
+        <img src="project-assets/logos/circle.svg" alt="Circle logo" />
+        <address>2972 Westheimer Rd. Santa Ana,<br />Illinois 85486</address>
+      </div>
+
+      <ul class="footer-info">
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </footer>
+    <script src="js/main.js"></script>
   </body>
 </html>

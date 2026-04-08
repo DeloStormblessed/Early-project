@@ -39,6 +39,16 @@ p {
   color: #6b708d;
   background-color: transparent;
 }
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger-btn span {
+  width: 30px;
+  height: 3px;
+  transition: all 0.3s ease;
+}
 .main-header {
   display: flex;
   align-items: center;
@@ -126,7 +136,6 @@ p {
   outline: none;
   width: 70%;
   position: absolute;
-  z-index: 1;
 }
 .hero-top-img {
   top: -30px;
@@ -139,10 +148,11 @@ p {
 .ad-pages {
   display: flex;
   max-width: 90%;
-  justify-content: space-between;
+  gap: 130px;
   margin: 200px auto;
   padding: 0px;
-  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: center;
 }
 
 .ad-pages img {
@@ -163,15 +173,18 @@ p {
 }
 .cards-container {
   display: flex;
-  justify-content: space-between;
+  flex-flow: row wrap;
   margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
 }
 .card {
-  width: 28%;
+  min-width: 250px;
+  width: 30%;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  margin: 0 auto;
+  margin: 0;
 }
 .card h4,
 .card p,
@@ -205,7 +218,7 @@ p {
   position: relative;
   display: flex;
   width: 95%;
-  height: 35%;
+  aspect-ratio: 16/9;
   background-color: #292e47;
   margin-bottom: 50px;
   justify-content: center;
@@ -213,7 +226,7 @@ p {
 }
 .testimonial-container img {
   display: flex;
-  object-fit: fill;
+  object-fit: cover;
 }
 .testimonial-text-container h3 {
   color: #f2f4fc;
@@ -275,20 +288,20 @@ p {
 }
 
 .top-left {
-  top: 50px;
-  left: 50px;
+  top: 5%;
+  left: 5%;
 }
 .top-right {
-  top: 50px;
-  right: 50px;
+  top: 5%;
+  right: 5%;
 }
 .bottom-left {
-  bottom: 50px;
-  left: 50px;
+  bottom: 5%;
+  left: 5%;
 }
 .bottom-right {
-  bottom: 50px;
-  right: 50px;
+  bottom: 5%;
+  right: 5%;
 }
 #services {
   width: 90%;
@@ -317,7 +330,6 @@ p {
 }
 
 #newsletter {
-  width: 90%;
   height: 400px;
   background-color: #ffc600;
   margin: 200px auto;
@@ -372,4 +384,153 @@ p {
   background-color: #072acb;
   font-size: 17px;
   font-weight: bold;
+}
+
+footer {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  font-size: 17px;
+  color: #6b708d;
+}
+
+.address-info {
+  margin: 0;
+}
+.address-info img {
+  height: 70px;
+  width: auto;
+  padding: 0 0 20px;
+}
+
+.footer-info {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  justify-content: center;
+}
+.footer-info li {
+  list-style: none;
+  flex: 0 33%;
+  padding: 20px 0;
+}
+.footer-info a {
+  text-decoration: none;
+  color: #6b708d;
+}
+
+.footer-info a:hover {
+  color: #072acb;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 46px;
+  }
+  .card {
+    width: 45%;
+  }
+  .emojis {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+  .main-header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Necesario para que el nav baje a la siguiente línea */
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* 1. Izquierda */
+  .hamburger-btn {
+    order: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* 2. Centro */
+  .main-header img {
+    order: 2;
+    margin: 0 auto; /* Ayuda a centrar si los elementos laterales tienen anchos distintos */
+  }
+
+  /* 3. Derecha */
+  .main-header .btn {
+    order: 3;
+    text-align: right;
+  }
+
+  /* 4. Menú desplegable (debajo de todo) */
+  nav {
+    order: 4;
+    width: 100%; /* Obliga al nav a ocupar toda la fila y bajar */
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    list-style: none;
+    padding-top: 10px;
+    margin: 0;
+    margin-top: 20px;
+    gap: 10px;
+    border-radius: 2%;
+  }
+  .navbar li {
+    border-bottom: 1px #072acb solid;
+    width: 100%;
+  }
+  .navbar.show {
+    display: flex;
+  }
+  .hero {
+    margin: 30px auto;
+    flex-direction: column;
+  }
+  .hero-text {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .hero-btns {
+    justify-content: center;
+  }
+  .card {
+    width: 100%;
+  }
+  #projects h3 {
+    text-align: center;
+  }
+  #services h3 {
+    text-align: center;
+  }
+  .newsletter-container {
+    gap: 10px;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .address-info {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
 }
