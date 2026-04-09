@@ -526,6 +526,9 @@ textarea {
   height: 200px;
   align-content: baseline;
 }
+.submit {
+  width: 100%;
+}
 @media (max-width: 1024px) {
   h1 {
     font-size: 46px;

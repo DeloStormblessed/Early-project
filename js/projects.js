@@ -1,43 +1,59 @@
 window.onload = () => {
-  fetch("URL_DE_TU_API")
+  fetch("js/data.json")
     .then((response) => {
-      if (!response.ok) throw new Error("Error en la petición HTTP");
+      if (!response.ok)
+        throw new Error("Error al cargar el archivo JSON local");
       return response.json();
     })
     .then((data) => {
       if (data.length < 4) {
-        console.error("La API no tiene suficientes proyectos.");
+        console.error("El archivo JSON no tiene suficientes proyectos.");
         return;
       }
 
-      // 1. Obtener 4 proyectos aleatorios y separarlos
-      const proyectosAleatorios = data
+      const urlParams = new URLSearchParams(window.location.search);
+      const uuidSeleccionado = urlParams.get("uuid");
+
+      let proyectoPrincipal;
+
+      if (uuidSeleccionado) {
+        proyectoPrincipal = data.find(
+          (p) => String(p.uuid) === String(uuidSeleccionado),
+        );
+      }
+
+      if (!proyectoPrincipal) {
+        const indiceAleatorio = Math.floor(Math.random() * data.length);
+        proyectoPrincipal = data[indiceAleatorio];
+      }
+
+      const restoProyectos = data.filter(
+        (p) => p.uuid !== proyectoPrincipal.uuid,
+      );
+      const proyectosTarjetas = restoProyectos
         .sort(() => 0.5 - Math.random())
-        .slice(0, 4);
-      const proyectoPrincipal = proyectosAleatorios[0];
-      const proyectosTarjetas = proyectosAleatorios.slice(1, 4);
+        .slice(0, 3);
 
-      // 2. Poblar el artículo principal (requiere los IDs en el HTML)
-      document.getElementById("nombre").textContent = proyectoPrincipal.name;
-      document.getElementById("descripcion").textContent =
-        proyectoPrincipal.description;
-      // Se asume que añadiste el id="contenido" y "fecha-completado" como vimos antes
-      // document.getElementById('contenido').innerHTML = proyectoPrincipal.content;
-      document.getElementById("imagen").src = proyectoPrincipal.image;
-      document.getElementById("fecha-completado").textContent =
-        proyectoPrincipal.completed_on;
+      // COMPROBACIÓN CLAVE: Solo intenta poblar el artículo si encuentra el ID 'nombre'
+      const elementoNombre = document.getElementById("nombre");
 
-      // 3. Poblar las tarjetas existentes
-      // Selecciona todos los divs que tengan ambas clases: "project" y "card"
+      if (elementoNombre) {
+        elementoNombre.textContent = proyectoPrincipal.name;
+        document.getElementById("descripcion").textContent =
+          proyectoPrincipal.description;
+        document.getElementById("imagen").src = proyectoPrincipal.image;
+        document.getElementById("imagen").src = proyectoPrincipal.image;
+        document.getElementById("contenido").textContent =
+          proyectoPrincipal.content;
+        // document.getElementById('contenido').innerHTML = proyectoPrincipal.content;
+      }
+
+      // Población de tarjetas (funciona en ambas páginas porque busca las clases)
       const tarjetasDOM = document.querySelectorAll(".project.card");
 
-      // Itera sobre los 3 proyectos destinados a las tarjetas
       proyectosTarjetas.forEach((proyecto, index) => {
-        // Asegura que hay una tarjeta en el HTML para este índice (0, 1, 2)
         if (tarjetasDOM[index]) {
           const tarjetaActual = tarjetasDOM[index];
-
-          // Busca y actualiza los elementos dentro de esa tarjeta específica
           tarjetaActual.querySelector("img").src = proyecto.image;
           tarjetaActual.querySelector("img").alt = `Imagen de ${proyecto.name}`;
           tarjetaActual.querySelector("h4").textContent = proyecto.name;
