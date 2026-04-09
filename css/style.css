@@ -529,6 +529,19 @@ textarea {
 .submit {
   width: 100%;
 }
+/*PAGE 404*/
+.error-container {
+  margin: 200px auto;
+  display: flex;
+  width: 90%;
+  height: 500px;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  border-radius: 8px;
+}
 @media (max-width: 1024px) {
   h1 {
     font-size: 46px;
