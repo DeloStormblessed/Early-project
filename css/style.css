@@ -587,6 +587,13 @@ textarea {
   .emojis {
     display: none;
   }
+  .hero-top-img,
+  .hero-bottom-img {
+    display: none;
+  }
+  .orbit {
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -602,16 +609,14 @@ textarea {
     height: auto;
     margin: 0 auto;
   }
-
+  .btn {
+    margin: 0;
+  }
   .hamburger-btn {
     order: 1;
     display: flex;
     justify-content: flex-start;
-  }
-
-  .main-header a {
-    order: 2;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .main-header .btn {
@@ -635,6 +640,15 @@ textarea {
     gap: 10px;
     border-radius: 2%;
   }
+  .testimonial-text-container {
+    gap: 50px;
+    border-top: 15px solid #292e47;
+    border-bottom: 15px solid #292e47;
+  }
+  .testimonial-text-container h3,
+  .testimonial-text {
+    width: 95%;
+  }
   .navbar li {
     border-bottom: 1px #072acb solid;
     width: 100%;
@@ -651,14 +665,14 @@ textarea {
     margin-bottom: 30px;
   }
   .hero-btns {
-    justify-content: center;
+    justify-content: space-evenly;
+  }
+  .ad-pages {
+    margin: 150px auto;
+    gap: 50px;
   }
   .card {
     width: 100%;
-  }
-  .hero-top-img,
-  .hero-bottom-img {
-    display: none;
   }
   #projects h3 {
     text-align: center;
@@ -681,11 +695,24 @@ textarea {
     justify-content: left;
     flex-direction: column;
   }
-  .orbit {
-    display: none !important;
+  #projects {
+    margin-bottom: 250px;
   }
+
   .testimonial-text-container {
     width: 100%;
     background-color: #292e47;
+  }
+  .author-date-project {
+    flex-direction: column;
+  }
+  .author-date-project p {
+    font-size: 17px;
+  }
+  .article-project {
+    padding-top: 50px;
+  }
+  #email {
+    width: 350px;
   }
 }
