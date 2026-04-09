@@ -76,6 +76,7 @@ p {
   color: #6b708d;
 }
 .navbar a:hover {
+  transition: all 0.3s ease;
   color: #072acb;
 }
 .btn {
@@ -93,6 +94,7 @@ p {
 }
 .btn:hover {
   color: #ffc600;
+  transition: all 0.3s ease;
 }
 .hero {
   display: flex;
@@ -120,6 +122,7 @@ p {
 }
 .whitebox:hover {
   color: #072acb;
+  transition: all 0.3s ease;
 }
 .hero-text {
   text-align: left;
@@ -163,6 +166,7 @@ p {
 }
 .ad-pages img:hover {
   filter: grayscale(0%);
+  transition: all 0.3s ease;
 }
 #projects {
   text-align: left;
@@ -437,6 +441,7 @@ footer {
 
 .footer-info a:hover {
   color: #072acb;
+  transition: all 0.3s ease;
 }
 .card {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -444,6 +449,7 @@ footer {
 }
 
 .card:hover {
+  transition: all 0.3s ease;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 .zoom {
@@ -452,6 +458,7 @@ footer {
 }
 
 .zoom:hover {
+  transition: all 0.3s ease;
   transform: scale(1.05);
 }
 /*PROJECTS.HTML*/

@@ -1,47 +1,47 @@
-// Seleccionar ambos formularios
+// Select both forms
 const contactForm = document.querySelector(".name-form");
 const newsletterForm = document.querySelector(".newsletter-form");
 
 // ==========================================
-// 1. Lógica del Formulario de Contacto
+// 1. Contact Form Logic
 // ==========================================
 if (contactForm) {
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Obtener valores
+    // Get values
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // 1. Campos obligatorios
+    // 1. Mandatory fields
     if (!name || !email || !message) {
       alert("Error: Name, Email, and Message are required.");
       return;
     }
 
-    // 2. Regla Ironhack
+    // 2. Ironhack rule
     if (name.toLowerCase() === "ironhack") {
       alert("You cannot be Ironhack, because I am Ironhack.");
       return;
     }
 
-    // 3. Validación de caracteres del nombre
+    // 3. Name character validation
     const nameRegex = /^[a-zA-Z\s]+$/;
     if (!nameRegex.test(name)) {
       alert("Error: Name contains invalid characters. Use letters only.");
       return;
     }
 
-    // 4. Validación de formato de Email
+    // 4. Email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert("Error: Invalid email format.");
       return;
     }
 
-    // 5. Validación opcional de Teléfono
+    // 5. Optional Phone validation
     if (phone) {
       const phoneRegex = /^[\d\s\+\-\(\)]+$/;
       if (!phoneRegex.test(phone)) {
@@ -50,31 +50,62 @@ if (contactForm) {
       }
     }
 
-    // Éxito
+    // --- NEW: Create array and show in CONSOLE ---
+    const apiPayload = [
+      {
+        formType: "contact",
+        name: name,
+        email: email,
+        phone: phone || "Not provided",
+        message: message,
+      },
+    ];
+
+    console.log("--- Contact Form Payload ---");
+    console.log(JSON.stringify(apiPayload, null, 2));
+
+    // Success
     alert("Submitted.");
-    // contactForm.submit(); // Descomentar para enviar datos reales al servidor
+    // contactForm.submit(); // Uncomment to send real data to the server
   });
 }
 
 // ==========================================
-// 2. Lógica del Formulario de Suscripción
+// 2. Newsletter Form Logic
 // ==========================================
 if (newsletterForm) {
   newsletterForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // 1. Localizar el contenedor donde residen el formulario, el h3 y el aside
+    // 1. Locate the container
     const parentContainer = this.parentElement;
 
-    // 2. Seleccionar los elementos a eliminar dentro de ese contenedor
+    // 2. Select elements to remove
     const headingToRemove = parentContainer.querySelector("h3");
     const asideToRemove = parentContainer.querySelector("aside");
 
-    // 3. Eliminarlos del DOM si existen
+    // 3. Remove them from DOM if they exist
     if (headingToRemove) headingToRemove.remove();
     if (asideToRemove) asideToRemove.remove();
 
-    // 4. Reemplazar el formulario por el mensaje de éxito
+    // --- NEW: Get email, create array and show in CONSOLE ---
+    const emailInput =
+      this.querySelector('input[type="email"]') || this.querySelector("input");
+    const subscriberEmail = emailInput
+      ? emailInput.value.trim()
+      : "unknown@email.com";
+
+    const apiPayload = [
+      {
+        formType: "newsletter",
+        email: subscriberEmail,
+        subscribedAt: new Date().toISOString(),
+      },
+    ];
+
+    console.log(JSON.stringify(apiPayload, null, 2));
+
+    // 4. Replace form with success message
     this.innerHTML = '<h3 class="success-message">Subscribed!</h3>';
   });
 }
