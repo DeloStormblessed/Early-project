@@ -307,12 +307,22 @@ p {
   width: 90%;
   margin-bottom: 20px;
   text-align: left;
-  margin: 50 auto;
+  margin: 50px auto;
 }
 .service {
-  align-items: start;
+  justify-content: space-around;
+  height: 350px;
+}
+.service a {
+  padding: 0;
+  position: relative;
+  bottom: 5%;
+}
+.service p {
+  padding: 0;
 }
 .service h4 {
+  padding: 0;
   margin-top: 10px;
 }
 .icon-service-card {
@@ -427,7 +437,22 @@ footer {
 .footer-info a:hover {
   color: #072acb;
 }
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
 
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.zoom {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.zoom:hover {
+  transform: scale(1.05);
+}
 /*PROJECTS.HTML*/
 .article-project {
   text-align: left;
